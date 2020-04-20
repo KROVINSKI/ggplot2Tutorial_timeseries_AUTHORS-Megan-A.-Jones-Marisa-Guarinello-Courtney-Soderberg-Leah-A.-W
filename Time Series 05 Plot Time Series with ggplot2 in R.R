@@ -132,6 +132,12 @@ class(harTemp.monthly.09.11$date)
 # We can use the qplot() function in the ggplot2 package to quickly plot a variable
 # the qplot, example: air temperature (airt) across all three years of daily average time series data
 
+## Examining the qplot function
+# function (x, y, ..., data, facets = NULL, margins = FALSE, geom = "auto", 
+#          xlim = c(NA, NA), ylim = c(NA, NA), log = "", main = NULL, 
+#          xlab = NULL, ylab = NULL, asp = NA, stat = NULL, position = NULL) 
+#{
+
 
 # plot air temp
 qplot(x=date, y=airt,
@@ -140,6 +146,13 @@ qplot(x=date, y=airt,
       xlab="Date", ylab="Temperature (°C)")
 
 
+#The resulting plot displays the pattern of air temperature 
+# air temp increasing and decreasing over three years. 
+# While qplot() is a quick way to plot data, 
+# our ability to customize the output is limited.
 
 
 
+#*********************************
+## 4.0) Plotting with qplot
+#*********************************
