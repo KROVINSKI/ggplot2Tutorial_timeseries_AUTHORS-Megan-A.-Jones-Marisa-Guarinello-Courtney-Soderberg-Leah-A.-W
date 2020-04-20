@@ -154,5 +154,84 @@ qplot(x=date, y=airt,
 
 
 #*********************************
-## 4.0) Plotting with qplot
+## 4.0) Plotting with ggplot
 #*********************************
+
+##Plot with ggplot
+##The ggplot() function within the ggplot2 package gives us more control over plot appearance
+## However, to use ggplot we need to learn a slightly different syntax. 
+        # Three basic elements are needed for ggplot() to work:
+
+# 1 of 3 Syntax Elements : First the Dataframe
+# The data_frame: containing the variables that we wish to plot,
+
+# 2 of 3 Syntax Elements : aesthetics, mapping x & Y.. axes
+# aes (aesthetics): which denotes which variables will map to the x-, y- (and other) axes,
+
+# 3 of 3 geometry graphical representation - Points | Bars | Lines
+# geom_XXXX (geometry): which defines the data's graphical representation (e.g. points (geom_point), bars (geom_bar), lines (geom_line), etc).
+
+
+#The syntax begins with the base statement that includes 
+  # the data_frame (harMetDaily.09.11) 
+  # and associated x (date) and y (airt) variables to be plotted:
+
+# ggplot(harMetDaily.09.11, aes(date, airt))
+
+# To successfully plot, the last piece that is needed is the geometry type. 
+  # In this case, we want to create a scatterplot so we can add + geom_point().
+
+
+# plot Air Temperature Data across 2009-2011 using daily data
+ggplot(harMetDaily.09.11, aes(date, airt)) +
+  geom_point(na.rm=TRUE)
+
+
+
+#*********************************
+## 5.0) Customize a Scatterplot
+#*********************************
+# Customize A Scatterplot
+# We can customize our plot in many ways. 
+  # For instance, we can change the size and color of the points 
+      #using size=, shape pch=, and color= in the geom_point element.
+          #example: 
+              # geom_point(na.rm=TRUE, color="blue", size=1)
+
+# plot Air Temperature Data across 2009-2011 using daily data
+ggplot(harMetDaily.09.11, aes(date, airt)) +
+  geom_point(na.rm=TRUE, color="blue", size=3, pch=18)
+
+
+
+
+#*********************************
+## 6.0) Plot Objects
+#*********************************
+# Name Plot Objects
+# We can create a ggplot object by assigning our plot to an object name
+# When we do this, the plot will not render automatically. 
+# To render the plot, we need to call it in the code.
+
+# Assigning plots to an R object allows us to 
+#     effectively add on to, and 
+#       modify the plot later 
+
+# Let's create a new plot and call it AirTempDaily.
+# plot Air Temperature Data across 2009-2011 using daily data
+AirTempDaily <- ggplot(harMetDaily.09.11, aes(date, airt)) +
+  geom_point(na.rm=TRUE, color="purple", size=1) + 
+  ggtitle("Air Temperature\n 2009-2011\n NEON Harvard Forest") +
+  xlab("Date") + ylab("Air Temperature (C)")
+
+# render the plot
+AirTempDaily
+
+
+#*********************************
+## 7.0) X axis Formating (Date)
+#*********************************
+
+
+
+
